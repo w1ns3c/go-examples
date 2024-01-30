@@ -26,7 +26,7 @@ func ExampleAES(data []byte, key []byte) {
 	key = crypto.FillAESKey(key)
 	fmt.Println(key)
 
-	cDataAES, err := crypto.AESencrypt(data, key)
+	cDataAES, err := crypto.EncryptAES(data, key)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -34,7 +34,7 @@ func ExampleAES(data []byte, key []byte) {
 	fmt.Println(cDataAES)
 	fmt.Println(string(cDataAES))
 
-	dataAES, err := crypto.AESdecrypt(cDataAES, key)
+	dataAES, err := crypto.DecryptAES(cDataAES, key)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -66,13 +66,13 @@ func ExampleRSA(data []byte) {
 		return
 	}
 
-	cData, err := EncryptRSA(data, pubKey)
+	cData, err := crypto.EncryptRSA(data, pubKey)
 	if err != nil {
 		fmt.Printf("Can't encrypt data: %v\n", err)
 		return
 	}
 
-	resData, err := DecryptRSA(cData, privKey)
+	resData, err := crypto.DecryptRSA(cData, privKey)
 	if err != nil {
 		fmt.Printf("Can't decrypt data: %v\n", err)
 		return

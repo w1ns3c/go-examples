@@ -12,7 +12,7 @@ const (
 	AES_KEY_LEN = 32
 )
 
-func AESencrypt(data []byte, key []byte) (cData []byte, err error) {
+func EncryptAES(data []byte, key []byte) (cData []byte, err error) {
 	keyBlock, err := aes.NewCipher(key)
 	if err != nil {
 		return nil, fmt.Errorf("can't create new cipher from KEY: %v", err)
@@ -34,7 +34,7 @@ func AESencrypt(data []byte, key []byte) (cData []byte, err error) {
 	return cData, err
 }
 
-func AESdecrypt(cData []byte, key []byte) (data []byte, err error) {
+func DecryptAES(cData []byte, key []byte) (data []byte, err error) {
 	keyBlock, err := aes.NewCipher(key)
 	if err != nil {
 		return nil, fmt.Errorf("can't create new cipher from KEY: %v", err)
