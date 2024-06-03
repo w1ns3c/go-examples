@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/w1nsec/go-examples/crypto"
+	"github.com/w1ns3c/go-examples/crypto"
 )
 
 const (
